@@ -1,0 +1,44 @@
+﻿@using University.BuisnessLogic.DTO;
+@model List<CourseDTO>
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+
+<a class="addCourse" asp-controller="Course" asp-action="CreateCourse">Добавить новый Курс</a>
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="~/css/main.css">
+
+<body>
+
+    <table style="width:100%">
+        <tr>
+            <th>Курсы</th>
+            <th>Описание</th>
+            <th>Действия</th>
+        </tr>
+        @foreach (var course in Model)
+        {
+            <tr>
+                <td>
+                    @course.Name
+                </td>
+                <td>
+                    @course.Description
+                </td>
+                <td>
+                    <span class="action_btn">
+                        <a asp-controller="Course" asp-action="EditCourse" asp-route-id="@course.Course_ID">Edit</a>
+                        <a asp-controller="Course" asp-action="RemoveCourse" asp-route-id="@course.Course_ID" id="submit">Delete</a>
+                        <a asp-controller="Groups" asp-action="ShowGroups" asp-route-id="@course.Course_ID">Показать групы</a>                                   
+                    </span>
+                </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
+
+

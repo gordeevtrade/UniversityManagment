@@ -1,0 +1,73 @@
+﻿@using University.BuisnessLogic.DTO;
+@model List<StudentDTO>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+    <link rel="stylesheet" href="~/css/main.css">
+</head>
+<body>
+
+    <h1>Група: @ViewBag.GroupName</h1>
+    <h2 align="center">Список Студентов</h2>
+
+
+    <a asp-controller="Student" asp-action="CreateStudent">Добавить нового Студента</a>
+
+
+    <div class="table_responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Имя Студента
+                    </th>
+                    <th>
+                        Фамилия Студента
+                    </th>
+                      <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var students in Model)
+                {
+                    <tr>
+                        <td>
+                            @students.First_Name
+                        </td>
+                        <td>
+                            @students.Last_Name
+                        </td>
+
+                        <td>
+                            <a asp-controller="Student" asp-action="EditStudent" asp-route-id="@students.Student_ID ">Edit</a> |
+                            <a asp-controller="Student" asp-action="RemoveStudent" asp-route-id="@students.Student_ID ">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="back">
+        <a asp-controller="Groups" asp-action="ShowGroup" asp-route-id="@ViewBag.Group_Id">Back to Group</a>
+     
+        <a asp-controller="Course" asp-action="GetAllCourse">Back to Home Page</a>
+
+    </div>
+
+</body>
+</html>
+
+
+

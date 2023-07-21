@@ -1,0 +1,44 @@
+﻿@using University.BuisnessLogic.DTO;
+@model GroupDTO
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Group</title>
+    <script language="javascript" type="text/javascript" src="../../js/validation.js"></script>
+    <link rel="stylesheet" href="/css/main.css">
+
+</head>
+<body>
+
+    <h1>Create Group</h1>
+
+<hr />
+
+    <form asp-controller="Groups" asp-action="AddGroup" method="post" name="myForm" onsubmit="return validateFormGroup()">
+        <label asp-for="Name" type="hidden"> Название Групы</label>
+<input asp-for="Name"  />
+  
+
+  <label asp-for="Course_ID" class="control-label">  Название Курса</label>
+ <select id="option"  type="hidden" asp-for="Course_ID"  asp-items="ViewBag.Course_Id">
+   <option  value="">--Select---</option>
+   </select>
+
+    
+    <input type="submit" value="Create" class="btn btn-primary" />
+  </form>
+
+   
+
+</body>
+</html>
+
+

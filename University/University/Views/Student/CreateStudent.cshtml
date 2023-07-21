@@ -1,0 +1,48 @@
+﻿@model University.BuisnessLogic.DTO.StudentDTO
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Student</title>
+    <script language="javascript" type="text/javascript" src="../../js/validation.js"></script>
+    <link rel="stylesheet" href="/css/main.css">
+
+</head>
+
+<body>
+
+    <h1>Create Student</h1>
+
+<hr />
+
+    <form asp-controller="Student" asp-action="CreateStudent" method="post" name="myForm" onsubmit="return validateFormStudents()">
+
+    <label asp-for="First_Name" > Имя </label>
+     <input asp-for="First_Name" id="inputValidation3" />
+
+    <label asp-for="Last_Name" > Фамилия </label>
+        <input asp-for="Last_Name"  />
+
+    <label asp-for="Group_ID" >Название Групы</label>
+    <select asp-for="Group_ID" asp-items="ViewBag.Group_Id"> </select>
+
+
+    <input type="submit" value="Save"  />
+</form>
+
+
+    <div class="back">
+        <a asp-controller="Groups"  asp-action="ShowGroup">Back to List</a>
+    </div>
+    
+
+</body>
+</html>

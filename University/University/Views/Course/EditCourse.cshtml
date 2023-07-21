@@ -1,0 +1,42 @@
+﻿@using University.BuisnessLogic.DTO;
+@model CourseDTO
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EditCourse</title>
+    <script language="javascript" type="text/javascript" src="../../js/validation.js"></script>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <h1>Edit Course</h1>
+
+    <hr />
+    <form asp-action="EditCourse" asp-controller="Course" method="post" name="myForm" onsubmit="return validateForm()">
+
+
+                    <label  asp-for="Name" class="control-label"> Название курса</label>
+                    <input asp-for="Name"  class="form-control"   />
+
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control"  />
+
+
+                    <label hidden asp-for="Course_ID " class="control-label"></label>
+                    <input type="hidden" asp-for="Course_ID" class="form-control" />
+
+                    <input type="submit" value="Create" class="btn btn-primary" />
+            </form>
+
+    <div class="back">
+        <a asp-action="GetAllCourse">Back to List</a>
+    </div>
+
+      </body>
+</html>

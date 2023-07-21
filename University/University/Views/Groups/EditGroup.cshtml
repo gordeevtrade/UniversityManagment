@@ -1,0 +1,42 @@
+﻿@using University.BuisnessLogic.DTO;
+@model GroupDTO
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Group</title>
+    <script language="javascript" type="text/javascript" src="../../js/validation.js"></script>
+    <link rel="stylesheet" href="/css/main.css">
+
+</head>
+
+<body>
+<h1>Edit Group</h1>
+
+<hr />
+    <form asp-action="EditGroup" asp-controller="Groups" method="post" name="myForm" onsubmit="return validateFormGroup()">
+          
+                <label hidden asp-for="Group_ID"  ></label>
+                <input asp-for="Group_ID"  type="hidden"  />
+
+                <label asp-for="Name" type="hidden"  > Название Групы</label>
+                 <input asp-for="Name" id="inputValidation" />
+
+                <label asp-for="Course_ID" type="hidden"  > Название Курса</label>
+                <select asp-for="Course_ID" asp-items="ViewBag.Course_Id">                
+                </select>
+
+                <input type="submit" value="Save"  />
+        </form>
+<div class="back">
+        <a asp-action="GetAllCourse">Back to List</a>
+</div>
+
+</body>
+</html>

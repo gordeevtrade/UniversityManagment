@@ -1,0 +1,14 @@
+﻿table, th, td {
+    border: 1px solid black;
+    margin-top:30px;
+    text-align:center;
+}
+
+table {
+    width:100%;
+}
+
+.back {
+
+  margin-top:30px;
+}

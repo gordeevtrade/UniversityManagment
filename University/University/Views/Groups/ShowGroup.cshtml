@@ -1,0 +1,60 @@
+﻿@using University.BuisnessLogic.DTO;
+@model GroupDTO
+
+@{
+    ViewData["Title"] = "Groups";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/css/main.css">
+    <script type="text/javascript" src="~/js/validation.js"></script>
+</head>
+<body>
+
+    <h2 align="center"> Группа</h2>
+    <a class="addCourse" asp-controller="Groups" asp-action="AddGroup">Добавить новую групу</a>
+
+    <div class="table_responsive">
+        <table>
+            <thead>
+                <tr>
+                    <th>Название Групы </th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>    
+              
+                    <tr>
+                        <td>
+                            @Model.Name
+                        </td>
+                        <td>
+                            <a asp-action="EditGroup" asp-route-id="@Model.Group_ID">Edit</a>
+                            <a asp-action="RemoveGroup" asp-route-id="@Model.Group_ID">Delete</a>
+                            <a asp-controller="Student" asp-action="ShowStudents" asp-route-id="@Model.Group_ID">Показать Студентов</a>
+                        </td>
+                    </tr>
+                
+            </tbody>
+        </table>
+    </div>
+
+    <div class="back">
+        <a asp-controller="Course" asp-action="GetAllCourse">Back to Courses</a>
+    </div>
+
+
+</body>
+</html>
+
+
+
+
+
